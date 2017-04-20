@@ -1,0 +1,31 @@
+{
+  "name": "portfolio-testing-mocha-chai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.5",
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0",
+    "password-hash": "^1.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev" : "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danilags/portfolio-testing-mocha-chai.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danilags/portfolio-testing-mocha-chai/issues"
+  },
+  "homepage": "https://github.com/danilags/portfolio-testing-mocha-chai#readme"
+}
