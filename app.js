@@ -1,9 +1,11 @@
 const express = require('express')
 const bodyPars = require('body-parser')
-const configDB = require('./config/configDB')
 const monggo = require('mongoose')
 const morgan = require('morgan')
 const index = require('./routes/index')
+const user = require('./routes/user')
+const article = require('./routes/article')
+const configDB = require('./config/config')
 const app = express()
 
 
@@ -19,7 +21,11 @@ monggo.connect(configDB.mongoURL[app.settings.env],(err,res) => {
   }
 })
 
-app.use('/',index);
+
+app.use('/', index)
+app.use('/users', user)
+app.use('/articles', article)
+
 
 app.listen(3000, () => {
   console.log('Server is running');
