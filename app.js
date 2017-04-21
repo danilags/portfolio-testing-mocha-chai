@@ -12,7 +12,7 @@ const app = express()
 app.use(morgan('dev'))
 app.use(bodyPars.json())
 app.use(bodyPars.urlencoded({extended:false}))
-
+// mongoose.Promise = global.Promise
 monggo.connect(configDB.mongoURL[app.settings.env],(err,res) => {
   if(err) {
     console.log('Error connecting to the database. ' + err);

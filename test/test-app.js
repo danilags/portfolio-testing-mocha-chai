@@ -45,3 +45,49 @@ describe('Getting all article', function() {
     })
   })
 })
+
+describe('Updated Article /:id', function() {
+  it('Updated single article', function(done) {
+    let article = new Article({
+      title : 'Ini adalah title article',
+      content: 'ini content dari article',
+      updateAt: new Date()
+    })
+
+    article.save(function(err, article) {
+      chai.request('http://localhost:3000')
+      .put('/articles/' + article._id)
+      .send({title : 'Ini updatean terbaru title article', content: 'Ini adalah updatean dari content', updateAt: new Date()})
+      .end(function(err, response) {
+        console.log(response);
+        response.should.have.status(200);
+        response.body.should.be.a('object')
+        response.body.should.have.property('n').eql(1)
+        response.body.should.have.property('message').eql('Data Updated')
+        // response.body.should.have.property('ok').eql(1);
+        done()
+      })
+    })
+  })
+})
+
+describe('Delete Single Article', function() {
+  this.timeout(5000)
+  it('Delete single Article', function(done) {
+    let article = new Article({
+      title : 'Ini adalah title article 2',
+      content: 'ini content dari article 2',
+      updateAt: new Date()
+    })
+    article.save(function(err, article) {
+      chai.request('http://localhost:3000')
+      .delete('/articles/' + article._id)
+      .end(function(err, response) {
+        response.should.have.status(200)
+        response.body.be.a('object')
+        res.body.should.have.property('msg').eql('Article berhasil di hapus !')
+        done()
+      })
+    })
+  })
+})

@@ -51,7 +51,7 @@ let updateArticle = function(req, res) {
     if (err) {
       res.send(err)
     } else {
-      res.send(data)
+      res.json({message: 'Data Updated', data: data})
     }
   })
 }
@@ -61,7 +61,7 @@ let deleteArticle = function(req, res) {
     if (err) {
       res.send(err)
     } else {
-      res.send("Article berhasil di hapus !")
+      res.send({msg: "Article berhasil di hapus !", data:data})
     }
   })
 }
